@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-
 import '../message.dart';
 import '../preview_data.dart' show PreviewData;
 import '../user.dart' show User;
@@ -79,16 +78,13 @@ class CustomMessage extends Message {
   /// [metadata] with null value will nullify existing metadata, otherwise
   /// both metadatas will be merged into one Map, where keys from a passed
   /// metadata will overwite keys from the previous one.
-  /// [isLoading], [previewData] is ignored for this message type.
+  /// [previewData] is ignored for this message type.
   /// [remoteId], [showStatus] and [updatedAt] with null values will nullify existing value.
-  /// [author], [createdAt] and [status] with null values will be overwritten by the previous values.
+  /// [status] with null value will be overwritten by the previous status.
   /// [text] is ignored for this message type.
   /// [uri] is ignored for this message type.
   @override
   Message copyWith({
-    User? author,
-    int? createdAt,
-    bool? isLoading,
     Map<String, dynamic>? metadata,
     PreviewData? previewData,
     String? remoteId,
@@ -99,8 +95,8 @@ class CustomMessage extends Message {
     String? uri,
   }) {
     return CustomMessage(
-      author: author ?? this.author,
-      createdAt: createdAt ?? this.createdAt,
+      author: author,
+      createdAt: createdAt,
       id: id,
       metadata: metadata == null
           ? null

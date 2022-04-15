@@ -1,9 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-
 import 'message.dart';
 import 'user.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 part 'room.g.dart';
 
@@ -24,7 +25,7 @@ class Room extends Equatable {
     this.name,
     required this.type,
     this.updatedAt,
-    required this.users,
+    this.users = const [],
   });
 
   /// Creates room from a map (decoded JSON).

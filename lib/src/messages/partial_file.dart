@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-
 import 'file_message.dart';
 
 part 'partial_file.g.dart';

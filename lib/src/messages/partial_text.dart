@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-
 import '../preview_data.dart' show PreviewData;
 import 'text_message.dart';
 

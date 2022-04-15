@@ -1,6 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:meta/meta.dart';
-
 import '../message.dart';
 import '../preview_data.dart' show PreviewData;
 import '../user.dart' show User;
@@ -87,15 +86,12 @@ class ImageMessage extends Message {
   /// [metadata] with null value will nullify existing metadata, otherwise
   /// both metadatas will be merged into one Map, where keys from a passed
   /// metadata will overwite keys from the previous one.
-  /// [isLoading], [previewData] is ignored for this message type.
+  /// [previewData] is ignored for this message type.
   /// [remoteId], [showStatus] and [updatedAt] with null values will nullify existing value.
-  /// [author], [createdAt], [status] and [uri] with null values will be overwritten by previous values.
+  /// [status] and [uri] with null values will be overwritten by previous values.
   /// [text] is ignored for this message type.
   @override
   Message copyWith({
-    User? author,
-    int? createdAt,
-    bool? isLoading,
     Map<String, dynamic>? metadata,
     PreviewData? previewData,
     String? remoteId,
@@ -106,8 +102,8 @@ class ImageMessage extends Message {
     String? uri,
   }) {
     return ImageMessage(
-      author: author ?? this.author,
-      createdAt: createdAt ?? this.createdAt,
+      author: author,
+      createdAt: createdAt,
       height: height,
       id: id,
       metadata: metadata == null
